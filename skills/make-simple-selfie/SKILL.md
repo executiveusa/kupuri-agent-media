@@ -1,6 +1,6 @@
 ---
 name: 'Make Simple Selfie'
-description: 'Generate a 5/10/15-second vertical UGC selfie video from a character sheet. Subject is framed waist-up, hands free (no object held), TikTok aesthetic, with native lip-synced audio of your script. Script word count is enforced at 2-4 words per second of duration.'
+description: 'Generate a 5/10/15-second vertical UGC selfie video from a character sheet. Two modes: provide a script for a lip-synced talking-head (2-4 words/sec), OR provide scene_action for a non-speech clip (dancing, b-roll, vibes) with optional background_music and no dialogue. Subject is framed waist-up, hands free, TikTok aesthetic.'
 allowed-tools: ['mcp__agent-media__make_simple_selfie']
 x-skill-slug: 'make_simple_selfie'
 x-skill-version: '1.0.0'
@@ -9,7 +9,7 @@ x-mcp-tool: 'mcp__agent-media__make_simple_selfie'
 ---
 # Make Simple Selfie
 
-Generate a 5/10/15-second vertical UGC selfie video from a character sheet. Subject is framed waist-up, hands free (no object held), TikTok aesthetic, with native lip-synced audio of your script. Script word count is enforced at 2-4 words per second of duration.
+Generate a 5/10/15-second vertical UGC selfie video from a character sheet. Two modes: provide a script for a lip-synced talking-head (2-4 words/sec), OR provide scene_action for a non-speech clip (dancing, b-roll, vibes) with optional background_music and no dialogue. Subject is framed waist-up, hands free, TikTok aesthetic.
 
 ## When to use this
 
