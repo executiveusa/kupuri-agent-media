@@ -3,7 +3,7 @@ name: 'Agent-Media UGC Playbook'
 description: 'Playbook for orchestrating an end-to-end UGC video on the agent-media vNext runtime. Read this before deciding whether to call the one-shot make_ugc_video skill or to chain the four primitives (make_portrait → make_character_sheet → make_simple_selfie → make_subtitles) manually.'
 allowed-tools: ['mcp__agent-media__make_portrait', 'mcp__agent-media__make_character_sheet', 'mcp__agent-media__make_simple_selfie', 'mcp__agent-media__make_subtitles', 'mcp__agent-media__make_wireframe', 'mcp__agent-media__make_lip_sync', 'mcp__agent-media__make_ugc_video']
 x-skill-slug: 'agent-media-ugc'
-x-skill-version: '1.0.0'
+x-skill-version: '1.1.0'
 ---
 # Agent-Media UGC Playbook
 
@@ -38,6 +38,10 @@ Authorization: Bearer $AGENT_MEDIA_API_KEY
 Poll with `GET /v1/skills/runs/<skill_run_id>` — the response surfaces per-step artifacts (portrait_url → character_sheet_url → video_url) as each primitive completes. Final video has subtitles burned in.
 
 See [skills/make-ugc-video/SKILL.md](../make-ugc-video/SKILL.md) for the schema.
+
+## Step D — publish it (optional)
+
+Once you have a `video_url`, you can post it straight to the user's TikTok / Instagram / X with the **publish-to-social** skill — `POST /v1/social/publish` (CLI `agent-media social publish`, MCP `social_publish`). The user connects each network once via OAuth (`/v1/social/connect`). See [skills/publish-to-social/SKILL.md](../publish-to-social/SKILL.md).
 
 ## Pattern B — chain the four primitives
 

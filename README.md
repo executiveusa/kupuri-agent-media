@@ -58,10 +58,10 @@ Rules every skill follows: scripts are paced 2–4 words/sec of duration (or omi
 
 ## Publish to social
 
-Post a generated video to the user's TikTok / Instagram / X:
-- `POST /v1/social/connect { provider }` → returns an OAuth `url` the user opens to authorize (agents can't OAuth for them).
-- `GET /v1/social/channels` → the user's connected channels `[{ id, name, provider, profile }]`.
-- `POST /v1/social/publish { video_url, channel_ids, caption, type:"now"|"schedule", date? }` → uploads the R2 video and posts/schedules it.
+Post a generated video to the user's TikTok / Instagram / X — via REST, the CLI, or MCP tools:
+- `POST /v1/social/connect { provider }` → returns an OAuth `url` the user opens to authorize (agents can't OAuth for them). CLI: `agent-media social connect x`. MCP: `social_connect`.
+- `GET /v1/social/channels` → the user's connected channels `[{ id, name, provider, profile }]`. CLI: `agent-media social channels`. MCP: `social_channels`.
+- `POST /v1/social/publish { video_url, channel_ids, caption, type:"now"|"schedule", date? }` → re-hosts the R2 video on the network and posts/schedules it; returns `{ success, media_id, post_ids }`. CLI: `agent-media social publish`. MCP: `social_publish`.
 
 See `skills/publish-to-social/SKILL.md` for the full flow.
 
