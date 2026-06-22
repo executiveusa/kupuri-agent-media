@@ -1,0 +1,14 @@
+{
+  "name": "vozviva-landing",
+  "version": "1.0.0",
+  "description": "VozViva™ by Kupuri Media — Spanish LATAM video landing page",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/verify-static-site.mjs",
+    "verify": "node scripts/verify-static-site.mjs",
+    "start": "npx serve . -p 3000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.3"
+  }
+}
