@@ -9,6 +9,7 @@ artifacts/
 # Next.js
 .next/
 out/
+tsconfig.tsbuildinfo
 
 # Vercel
 .vercel
