@@ -3,19 +3,14 @@ import { createClient } from '@supabase/supabase-js'
 import type { VideoJob, VideoResult, VideoProvider_Interface } from '../types'
 import { generateScript } from '../script'
 
-const replicate = new Replicate({
-  auth: process.env.REPLICATE_API_TOKEN,
-})
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
-
 async function updateVideoStatus(
   id: string,
   update: Record<string, unknown>
 ) {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  )
   await supabase
     .from('videos')
     .update({ ...update, updated_at: new Date().toISOString() })
@@ -26,6 +21,8 @@ export const replicateProvider: VideoProvider_Interface = {
   name: 'replicate',
 
   async createVideo(job: VideoJob): Promise<VideoResult> {
+    const replicate = new Replicate({ auth: process.env.REPLICATE_API_TOKEN })
+
     // Step 1: Ensure we have a script
     let script = job.script
     if (!script?.trim()) {

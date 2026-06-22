@@ -3,11 +3,6 @@ import type { VideoJob, VideoProvider, VideoType, VideoProvider_Interface } from
 import { replicateProvider } from './providers/replicate'
 import { heygenProvider } from './providers/heygen'
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
-
 const PROVIDERS: Record<VideoProvider, VideoProvider_Interface> = {
   replicate: replicateProvider,
   heygen: heygenProvider,
@@ -25,6 +20,10 @@ export function selectProvider(
 }
 
 export async function createVideo(job: VideoJob): Promise<void> {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  )
   const provider = selectProvider(job.provider, job.type)
 
   try {
