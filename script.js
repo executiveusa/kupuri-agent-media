@@ -1,221 +1,112 @@
-/* VozViva — script.js
-   Mobile nav + GSAP animations + video lazy-load
-   ------------------------------------------------
-   DEMO VIDEOS: Add generated video URLs to the DEMO_VIDEOS object below.
-   Run: npx agent-media-cli video create ... to generate with the CLI.
-*/
-
-// ---- VIDEO CONFIGURATION ----
-// Replace these with real URLs from agent-media once generated.
-// Leave empty string ("") to show the CSS placeholder instead.
-const DEMO_VIDEOS = {
-  hero:       "",   // Hero phone — e.g. a general VozViva intro video
-  spa:        "",   // Demo 1: Spa promotion in Spanish
-  restaurant: "",   // Demo 2: Restaurant menu in Spanish
-  realestate: "",   // Demo 3: Real estate walkthrough in Spanish
-};
+/* VozViva™ — GSAP animations + mobile nav */
 
 (function () {
   'use strict';
 
-  /* ---- Inject video sources ---- */
-  document.querySelectorAll('[data-demo]').forEach(function (el) {
-    var key = el.getAttribute('data-demo');
-    var src = DEMO_VIDEOS[key];
-    if (src) {
-      el.src = src;
-      el.classList.add('has-src');
-      // Hide the sibling placeholder
-      var placeholder = el.nextElementSibling;
-      if (placeholder && placeholder.classList.contains('phone-placeholder') ||
-          placeholder && placeholder.classList.contains('demo-placeholder')) {
-        placeholder.style.display = 'none';
-      }
-      // Lazy load — pause until in viewport
-      el.pause();
-    }
-  });
-
-  /* ---- Intersection observer for video autoplay ---- */
-  if ('IntersectionObserver' in window) {
-    var videoObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var vid = entry.target;
-        if (entry.isIntersecting) {
-          vid.play().catch(function () {});
-        } else {
-          vid.pause();
-        }
-      });
-    }, { threshold: 0.25 });
-
-    document.querySelectorAll('video.has-src').forEach(function (vid) {
-      videoObs.observe(vid);
-    });
-  }
-
-  /* ---- Mobile nav ---- */
-  var toggle = document.querySelector('.nav-toggle');
-  var mobileNav = document.getElementById('mobile-nav');
+  /* ---------- Mobile nav ---------- */
+  const toggle = document.querySelector('.nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
 
   if (toggle && mobileNav) {
-    toggle.addEventListener('click', function () {
-      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isOpen));
       mobileNav.hidden = isOpen;
     });
 
-    mobileNav.querySelectorAll('.mobile-link').forEach(function (link) {
-      link.addEventListener('click', function () {
+    mobileNav.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
         toggle.setAttribute('aria-expanded', 'false');
         mobileNav.hidden = true;
       });
     });
-
-    // Close on outside click
-    document.addEventListener('click', function (e) {
-      if (!toggle.contains(e.target) && !mobileNav.contains(e.target)) {
-        toggle.setAttribute('aria-expanded', 'false');
-        mobileNav.hidden = true;
-      }
-    });
   }
 
-  /* ---- Smooth demo video hover play ---- */
-  document.querySelectorAll('.demo-phone').forEach(function (phone) {
-    var vid = phone.querySelector('video');
-    if (!vid || !vid.src) return;
-    phone.addEventListener('mouseenter', function () { vid.play().catch(function(){}); });
-    phone.addEventListener('mouseleave', function () { vid.pause(); vid.currentTime = 0; });
-  });
-
-  /* ---- GSAP ---- */
+  /* ---------- GSAP ---------- */
   if (typeof gsap === 'undefined') return;
 
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) return;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced) return;
 
   gsap.registerPlugin(ScrollTrigger);
 
   /* Hero entrance */
-  var heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
   heroTl
-    .from('.hero-headline',  { y: 28, opacity: 0, duration: 0.6 }, 0.1)
-    .from('.hero-sub',       { y: 20, opacity: 0, duration: 0.5 }, 0.25)
-    .from('.hero-actions',   { y: 16, opacity: 0, duration: 0.45}, 0.38)
-    .from('.hero-note',      { y: 12, opacity: 0, duration: 0.4 }, 0.48)
-    .from('.phone-frame',    { y: 32, opacity: 0, duration: 0.7, ease: 'power2.out' }, 0.15)
-    .from('.hero-platform-labels', { opacity: 0, duration: 0.4 }, 0.7);
+    .from('.hero-badge',         { y: 16, opacity: 0, duration: 0.55 })
+    .from('.hero-headline',      { y: 24, opacity: 0, duration: 0.65 }, '-=0.3')
+    .from('.hero-subheadline',   { y: 18, opacity: 0, duration: 0.55 }, '-=0.4')
+    .from('.hero-actions',       { y: 16, opacity: 0, duration: 0.5  }, '-=0.35')
+    .from('.hero-trust',         { y: 12, opacity: 0, duration: 0.4  }, '-=0.3')
+    .from('.command-card',       { y: 28, opacity: 0, duration: 0.7, ease: 'power2.out' }, '-=0.5')
+    .from('.phone-mockup',       { x: 20, opacity: 0, duration: 0.55 }, '-=0.4');
 
-  /* Phone subtle float */
-  gsap.to('.phone-frame', {
-    y: -10,
-    duration: 3,
+  /* Floating phone subtle bob */
+  gsap.to('.phone-mockup', {
+    y: -8,
+    duration: 2.8,
     ease: 'sine.inOut',
     repeat: -1,
     yoyo: true,
-    delay: 0.8,
+    delay: 1,
   });
 
-  /* Quality bar */
-  gsap.from('.quality-item', {
-    opacity: 0,
-    y: 12,
-    stagger: 0.1,
-    duration: 0.5,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.quality-bar', start: 'top 90%', once: true },
-  });
+  /* Section reveal — reusable helper */
+  function revealSection(selector, options = {}) {
+    const els = document.querySelectorAll(selector);
+    if (!els.length) return;
+    gsap.from(els, {
+      y: options.y ?? 30,
+      opacity: 0,
+      duration: options.duration ?? 0.6,
+      stagger: options.stagger ?? 0.12,
+      ease: options.ease ?? 'power2.out',
+      scrollTrigger: {
+        trigger: options.trigger ?? els[0].closest('section') ?? els[0],
+        start: options.start ?? 'top 82%',
+        once: true,
+      },
+    });
+  }
 
-  /* Demo cards */
-  gsap.from('.demo-card', {
-    opacity: 0,
-    y: 28,
-    stagger: 0.14,
-    duration: 0.6,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.demos-grid', start: 'top 82%', once: true },
-  });
-
-  /* Steps */
-  gsap.from('.step', {
-    opacity: 0,
-    y: 24,
-    stagger: 0.18,
-    duration: 0.6,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.steps-track', start: 'top 80%', once: true },
-  });
-
-  /* For-grid items */
-  gsap.from('.for-item', {
-    opacity: 0,
-    y: 14,
-    stagger: 0.04,
-    duration: 0.45,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.for-grid', start: 'top 82%', once: true },
-  });
-
-  /* Pricing cards */
-  gsap.from('.plan-card', {
-    opacity: 0,
-    y: 28,
-    stagger: 0.13,
-    duration: 0.6,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.pricing-grid', start: 'top 82%', once: true },
-  });
-
-  /* FAQ items */
-  gsap.from('.faq-item', {
-    opacity: 0,
-    y: 14,
-    stagger: 0.07,
-    duration: 0.45,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.faq-list', start: 'top 85%', once: true },
-  });
+  revealSection('.problem-item',   { stagger: 0.1 });
+  revealSection('.step-card',      { stagger: 0.15 });
+  revealSection('.example-card',   { stagger: 0.08, y: 20 });
+  revealSection('.feature-item',   { stagger: 0.06, y: 18 });
+  revealSection('.pricing-card',   { stagger: 0.14, y: 24 });
+  revealSection('.suite-card',     { stagger: 0.12 });
+  revealSection('.faq-item',       { stagger: 0.07, y: 14 });
+  revealSection('.final-cta-heading', { stagger: 0, y: 20, duration: 0.7 });
+  revealSection('.final-cta-actions', { stagger: 0.1, y: 14, duration: 0.55 });
 
   /* Section headings */
-  document.querySelectorAll('.section-heading').forEach(function (el) {
+  document.querySelectorAll('.section-heading').forEach(el => {
     gsap.from(el, {
-      opacity: 0,
       y: 20,
-      duration: 0.6,
+      opacity: 0,
+      duration: 0.65,
       ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+      },
     });
   });
 
-  /* CTA section */
-  gsap.from('.cta-heading', {
-    opacity: 0,
-    y: 24,
-    duration: 0.7,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.cta-section', start: 'top 82%', once: true },
-  });
-  gsap.from('.cta-actions .btn', {
-    opacity: 0,
-    y: 14,
-    stagger: 0.1,
-    duration: 0.5,
-    ease: 'power2.out',
-    scrollTrigger: { trigger: '.cta-actions', start: 'top 85%', once: true },
-  });
-
-  /* Primary CTA magnetic hover — desktop only */
-  if (window.innerWidth >= 900) {
-    document.querySelectorAll('.btn-primary, .btn-cta').forEach(function (btn) {
-      btn.addEventListener('mousemove', function (e) {
-        var r  = btn.getBoundingClientRect();
-        var dx = (e.clientX - (r.left + r.width  / 2)) * 0.22;
-        var dy = (e.clientY - (r.top  + r.height / 2)) * 0.22;
+  /* CTA magnetic hover — desktop only */
+  if (window.innerWidth >= 768) {
+    document.querySelectorAll('.btn-primary').forEach(btn => {
+      btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (e.clientX - cx) * 0.25;
+        const dy = (e.clientY - cy) * 0.25;
         gsap.to(btn, { x: dx, y: dy, duration: 0.3, ease: 'power2.out' });
       });
-      btn.addEventListener('mouseleave', function () {
-        gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1,0.5)' });
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.4, ease: 'elastic.out(1, 0.5)' });
       });
     });
   }
