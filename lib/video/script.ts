@@ -1,16 +1,10 @@
 import OpenAI from 'openai'
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-})
-
-/**
- * Generate a short marketing script in Mexican Spanish for social media videos.
- */
 export async function generateScript(
   businessType: string,
   tone: string = 'amigable y persuasivo'
 ): Promise<string> {
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   const completion = await openai.chat.completions.create({
     model: 'gpt-4o-mini',
     messages: [
