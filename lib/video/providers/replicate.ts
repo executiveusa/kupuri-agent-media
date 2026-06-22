@@ -51,8 +51,8 @@ export const replicateProvider: VideoProvider_Interface = {
     })
 
     const portraitUrl = Array.isArray(portraitOutput)
-      ? (portraitOutput[0] as string)
-      : (portraitOutput as string)
+      ? (portraitOutput[0] as unknown as string)
+      : (portraitOutput as unknown as string)
 
     if (!portraitUrl) {
       throw new Error('No se pudo generar el retrato')
@@ -68,7 +68,7 @@ export const replicateProvider: VideoProvider_Interface = {
       },
     })
 
-    const audioUrl = ttsOutput as string
+    const audioUrl = ttsOutput as unknown as string
     if (!audioUrl) {
       throw new Error('No se pudo generar el audio')
     }
@@ -85,7 +85,7 @@ export const replicateProvider: VideoProvider_Interface = {
       },
     })
 
-    const lipsyncVideoUrl = lipsyncOutput as string
+    const lipsyncVideoUrl = lipsyncOutput as unknown as string
     if (!lipsyncVideoUrl) {
       throw new Error('No se pudo generar el video con lip-sync')
     }
@@ -101,7 +101,7 @@ export const replicateProvider: VideoProvider_Interface = {
       },
     })
 
-    const subtitles = subtitleOutput as { text: string }
+    const subtitles = subtitleOutput as unknown as { text: string }
     void subtitles // Subtitles generated; in production, burn them into video
 
     // For now, return the lip-sync video as the final result
