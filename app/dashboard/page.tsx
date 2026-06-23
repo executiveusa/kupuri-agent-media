@@ -5,6 +5,7 @@ interface Video {
   title: string | null
   type: string
   status: string
+  provider: string
   created_at: string
   video_url: string | null
   thumbnail_url: string | null
@@ -44,6 +45,28 @@ function VideoCard({ video }: { video: Video }) {
             }}
           />
         )}
+        {/* Free tier: audio play link overlay */}
+        {video.provider === 'free' && video.status === 'ready' && video.video_url && (
+          <a
+            href={video.video_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              position: 'absolute',
+              bottom: 6,
+              right: 6,
+              background: 'var(--clay)',
+              color: '#fff',
+              borderRadius: 4,
+              padding: '2px 7px',
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              textDecoration: 'none',
+            }}
+          >
+            ▶ Audio
+          </a>
+        )}
       </div>
       <div className="video-card-body">
         <div className="video-card-title">
@@ -65,7 +88,7 @@ export default async function DashboardPage() {
 
   const { data: videos, error } = await supabase
     .from('videos')
-    .select('id, title, type, status, created_at, video_url, thumbnail_url')
+    .select('id, title, type, status, provider, created_at, video_url, thumbnail_url')
     .order('created_at', { ascending: false })
 
   if (error) {

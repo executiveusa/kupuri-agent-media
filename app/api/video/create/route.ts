@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   }
 
   const validTypes: VideoType[] = ['ugc_selfie', 'broll_talking_head', 'product_demo']
-  const validProviders: VideoProvider[] = ['replicate', 'heygen']
+  const validProviders: VideoProvider[] = ['replicate', 'heygen', 'free']
 
   if (!validTypes.includes(type)) {
     return NextResponse.json({ error: `Tipo de video inválido: ${type}` }, { status: 400 })

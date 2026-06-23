@@ -35,11 +35,18 @@ const VIDEO_TYPES: { id: VideoType; title: string; desc: string }[] = [
 
 const PROVIDERS: { id: VideoProvider; name: string; badge: string; badgeClass: string; desc: string }[] = [
   {
+    id: 'free',
+    name: 'Demo Gratis',
+    badge: '100% gratis',
+    badgeClass: 'provider-card-badge--free',
+    desc: 'Imagen del presentador + voz en español. Sin costo. Powered by HuggingFace (FLUX.1-schnell + MMS-TTS).',
+  },
+  {
     id: 'replicate',
     name: 'Estándar',
     badge: 'Código abierto',
     badgeClass: 'provider-card-badge--free',
-    desc: 'Generación con modelos de código abierto. Incluido en tu plan. Ideal para pruebas y contenido frecuente.',
+    desc: 'Avatar con labios sincronizados. Usa Replicate (Flux + Hallo). Costo bajo por video.',
   },
   {
     id: 'heygen',
