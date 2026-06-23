@@ -2,10 +2,12 @@ import { createClient } from '@supabase/supabase-js'
 import type { VideoJob, VideoProvider, VideoType, VideoProvider_Interface } from './types'
 import { replicateProvider } from './providers/replicate'
 import { heygenProvider } from './providers/heygen'
+import { freeProvider } from './providers/free'
 
 const PROVIDERS: Record<VideoProvider, VideoProvider_Interface> = {
   replicate: replicateProvider,
   heygen: heygenProvider,
+  free: freeProvider,
 }
 
 export function selectProvider(
