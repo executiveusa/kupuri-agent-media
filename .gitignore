@@ -5,3 +5,11 @@ artifacts/
 .env.local
 *.log
 .DS_Store
+
+# Next.js
+.next/
+out/
+tsconfig.tsbuildinfo
+
+# Vercel
+.vercel
