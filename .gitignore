@@ -13,3 +13,6 @@ tsconfig.tsbuildinfo
 
 # Vercel
 .vercel
+
+# free-claude-code local proxy (external repo, not part of VozViva)
+free-claude-code/

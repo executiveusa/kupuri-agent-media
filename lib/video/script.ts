@@ -4,9 +4,22 @@ export async function generateScript(
   businessType: string,
   tone: string = 'amigable y persuasivo'
 ): Promise<string> {
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-  const completion = await openai.chat.completions.create({
-    model: 'gpt-4o-mini',
+  // Priority: Groq (free) → local proxy (OPENAI_BASE_URL) → OpenAI
+  const groqKey = process.env.GROQ_API_KEY
+  const client = groqKey
+    ? new OpenAI({
+        apiKey: groqKey,
+        baseURL: 'https://api.groq.com/openai/v1',
+      })
+    : new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+        baseURL: process.env.OPENAI_BASE_URL, // local free-claude-code proxy if set
+      })
+
+  const model = groqKey ? 'llama-3.1-8b-instant' : 'gpt-4o-mini'
+
+  const completion = await client.chat.completions.create({
+    model,
     messages: [
       {
         role: 'system',

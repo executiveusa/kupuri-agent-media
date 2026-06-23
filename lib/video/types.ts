@@ -1,4 +1,4 @@
-export type VideoProvider = 'replicate' | 'heygen'
+export type VideoProvider = 'replicate' | 'heygen' | 'free'
 export type VideoType = 'ugc_selfie' | 'broll_talking_head' | 'product_demo'
 export type VideoStatus = 'pending' | 'processing' | 'ready' | 'failed'
 
