@@ -14,7 +14,7 @@ export default function Home() {
             <a href="#preguntas">Preguntas</a>
           </nav>
           <a
-            href="mailto:hello@kupurimedia.com?subject=Quiero%20probar%20VozViva"
+            href="/dashboard/create"
             className="btn btn-primary btn-sm nav-cta"
           >
             Empezar gratis
@@ -50,7 +50,7 @@ export default function Home() {
             Preguntas
           </a>
           <a
-            href="mailto:hello@kupurimedia.com?subject=Quiero%20probar%20VozViva"
+            href="/dashboard/create"
             className="btn btn-primary mobile-cta"
           >
             Empezar gratis
@@ -75,7 +75,7 @@ export default function Home() {
               </p>
               <div className="hero-actions">
                 <a
-                  href="mailto:hello@kupurimedia.com?subject=Quiero%20mi%20primer%20video%20VozViva"
+                  href="/dashboard/create"
                   className="btn btn-primary btn-lg"
                 >
                   Crear mi primer video
@@ -95,8 +95,7 @@ export default function Home() {
                 <div className="phone-screen">
                   <video
                     className="phone-video hero-video"
-                    src=""
-                    poster=""
+                    poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/spa_portrait.jpg"
                     autoPlay
                     muted
                     loop
@@ -178,8 +177,7 @@ export default function Home() {
                     <div className="demo-screen">
                       <video
                         className="demo-video"
-                        src=""
-                        poster=""
+                        poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/spa_portrait.jpg"
                         muted
                         loop
                         playsInline
@@ -209,6 +207,14 @@ export default function Home() {
                     <span>Voz en español</span>
                     <span>Subtítulos</span>
                   </div>
+                  <a
+                    href="https://ai.invideo.io/ai-mcp-video?video=spa-wellness-promotion-with-discount-ynqlpo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="demo-watch-link"
+                  >
+                    ▶ Ver video demo
+                  </a>
                 </div>
               </div>
 
@@ -219,8 +225,7 @@ export default function Home() {
                     <div className="demo-screen">
                       <video
                         className="demo-video"
-                        src=""
-                        poster=""
+                        poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/restaurant_portrait.jpg"
                         muted
                         loop
                         playsInline
@@ -250,6 +255,14 @@ export default function Home() {
                     <span>Voz en español</span>
                     <span>Subtítulos</span>
                   </div>
+                  <a
+                    href="https://ai.invideo.io/ai-mcp-video?video=restaurant-weekend-menu-announcement-kservq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="demo-watch-link"
+                  >
+                    ▶ Ver video demo
+                  </a>
                 </div>
               </div>
 
@@ -260,8 +273,7 @@ export default function Home() {
                     <div className="demo-screen">
                       <video
                         className="demo-video"
-                        src=""
-                        poster=""
+                        poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/realestate_portrait.jpg"
                         muted
                         loop
                         playsInline
@@ -291,13 +303,21 @@ export default function Home() {
                     <span>Voz en español</span>
                     <span>Subtítulos</span>
                   </div>
+                  <a
+                    href="https://ai.invideo.io/ai-mcp-video?video=real-estate-apartment-listing-in-mexico-city-tvveyc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="demo-watch-link"
+                  >
+                    ▶ Ver video demo
+                  </a>
                 </div>
               </div>
             </div>
 
             <div className="demos-cta">
               <a
-                href="mailto:hello@kupurimedia.com?subject=Quiero%20crear%20mi%20video%20con%20VozViva"
+                href="/dashboard/create"
                 className="btn btn-primary btn-lg"
               >
                 Crear mi video ahora
@@ -502,7 +522,7 @@ export default function Home() {
                   <li>Soporte por correo</li>
                 </ul>
                 <a
-                  href="mailto:hello@kupurimedia.com?subject=Plan%20Arranque%20VozViva"
+                  href="/dashboard/create"
                   className="btn btn-outline plan-btn"
                 >
                   Empezar con Arranque
@@ -530,7 +550,7 @@ export default function Home() {
                   <li>Recomendaciones de mejora</li>
                 </ul>
                 <a
-                  href="mailto:hello@kupurimedia.com?subject=Plan%20Negocio%20VozViva"
+                  href="/dashboard/create"
                   className="btn btn-primary plan-btn"
                 >
                   Activar plan Negocio
@@ -556,7 +576,7 @@ export default function Home() {
                   <li>Revisión mensual</li>
                 </ul>
                 <a
-                  href="mailto:hello@kupurimedia.com?subject=Plan%20Agencia%20VozViva"
+                  href="/dashboard/create"
                   className="btn btn-outline plan-btn"
                 >
                   Hablar de Agencia
@@ -657,7 +677,7 @@ export default function Home() {
             </h2>
             <div className="cta-actions">
               <a
-                href="mailto:hello@kupurimedia.com?subject=Quiero%20crear%20mi%20primer%20video"
+                href="/dashboard/create"
                 className="btn btn-cta btn-xl"
               >
                 Crear mi primer video

@@ -626,6 +626,24 @@ summary::-webkit-details-marker { display: none; }
   padding: 3px 8px;
   border-radius: 100px;
 }
+.demo-watch-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clay);
+  text-decoration: none;
+  border: 1px solid var(--clay);
+  border-radius: 100px;
+  padding: 5px 14px;
+  transition: background 0.15s, color 0.15s;
+}
+.demo-watch-link:hover {
+  background: var(--clay);
+  color: #fff;
+}
 
 .demos-cta {
   text-align: center;
