@@ -17,13 +17,14 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'VozViva — Videos para redes en español, sin grabarte',
+  title: 'VozViva — Videos cortos para redes en español (versión de prueba)',
   description:
-    'Crea anuncios, reels y videos para redes sociales con personas virtuales, voz en español y subtítulos. Sin grabarte. Sin editar.',
+    'Versión de prueba: describe tu idea y genera videos cortos con IA para redes sociales, en español.',
+  robots: process.env.NOINDEX ? { index: false, follow: false } : undefined,
   openGraph: {
-    title: 'VozViva — Videos para redes en español, sin grabarte',
+    title: 'VozViva — Videos cortos para redes en español (versión de prueba)',
     description:
-      'Escribe tu idea y recibe un video listo para publicar en TikTok, Instagram Reels y YouTube Shorts.',
+      'Versión de prueba: escribe tu idea y recibe un video corto generado con IA.',
     type: 'website',
     locale: 'es_MX',
   },

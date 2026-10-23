@@ -9,10 +9,10 @@
 // Replace these with real URLs from agent-media once generated.
 // Leave empty string ("") to show the CSS placeholder instead.
 const DEMO_VIDEOS = {
-  hero:       "",   // Hero phone — e.g. a general VozViva intro video
-  spa:        "",   // Demo 1: Spa promotion in Spanish
-  restaurant: "",   // Demo 2: Restaurant menu in Spanish
-  realestate: "",   // Demo 3: Real estate walkthrough in Spanish
+  hero:       "/demos/hero.mp4",   // Hero phone — e.g. a general VozViva intro video
+  spa:        "/demos/spa.mp4",   // Demo 1: Spa promotion in Spanish
+  restaurant: "/demos/restaurant.mp4",   // Demo 2: Restaurant menu in Spanish
+  realestate: "/demos/realestate.mp4",   // Demo 3: Real estate walkthrough in Spanish
 };
 
 (function () {
@@ -23,6 +23,7 @@ const DEMO_VIDEOS = {
     var key = el.getAttribute('data-demo');
     var src = DEMO_VIDEOS[key];
     if (src) {
+      el.poster = src.replace('.mp4', '.jpg');
       el.src = src;
       el.classList.add('has-src');
       // Hide the sibling placeholder

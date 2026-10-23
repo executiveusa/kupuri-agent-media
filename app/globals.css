@@ -1726,7 +1726,6 @@ summary::-webkit-details-marker { display: none; }
 
   .hero { padding: 56px 0 48px; }
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero-phone { order: -1; }
   .phone-frame { width: 200px; }
 
   .demos-grid     { grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -1819,3 +1818,36 @@ summary::-webkit-details-marker { display: none; }
    ============================================================ */
 .br-lg { display: none; }
 @media (min-width: 900px) { .br-lg { display: block; } }
+
+/* ============================================================
+   MOBILE POLISH (tap targets, legibility, video fit)
+   ============================================================ */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+video.has-src, .phone-video, .demo-video { object-fit: cover; background: #0d0d0d; }
+@media (max-width: 768px) {
+  .nav-toggle { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; margin-right: -8px; }
+  .logo { display: inline-flex; align-items: center; min-height: 44px; }
+  .plan-btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+  .footer-nav a, .footer-nav { line-height: 1; }
+  .footer-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; }
+  .footer-inner a[href*="kupuri"], .footer a[href*="kupuri"] { display: inline-block; padding: 12px 0; }
+  .demo-tag, .demo-tags span, .demo-outputs span, .hero-formats span { font-size: 0.75rem; }
+  .demo-card { padding-bottom: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  video { animation: none; }
+  * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+/* ============================================================
+   REGISTRO (honest signup notice while in private preview)
+   ============================================================ */
+.registro-section { padding: 72px 0; }
+.registro-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.registro-copy { margin: 16px auto 28px; color: var(--muted, #5b5b5b); line-height: 1.65; }
+.registro-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 768px) {
+  .registro-section { padding: 56px 0; }
+  .registro-actions { flex-direction: column; }
+  .registro-actions .btn { width: 100%; justify-content: center; }
+}
