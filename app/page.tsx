@@ -69,23 +69,23 @@ export default function Home() {
                 <em>para redes sociales en español.</em>
               </h1>
               <p className="hero-sub">
-                Escribe tu idea. Elige el estilo. Recibe un video con persona
-                virtual, voz y subtítulos — listo para publicar en TikTok, Reels
-                y Shorts.
+                Escribe tu idea y elige el estilo. VozViva es una versión de
+                prueba: estamos construyendo videos con persona virtual y voz
+                en español para TikTok, Reels y Shorts.
               </p>
               <div className="hero-actions">
                 <a
                   href="/dashboard/create"
                   className="btn btn-primary btn-lg"
                 >
-                  Crear mi primer video
+                  Probar la versión de prueba
                 </a>
                 <a href="#demos" className="btn btn-ghost btn-lg">
-                  Ver ejemplos reales
+                  Ver ejemplos
                 </a>
               </div>
               <p className="hero-note">
-                Sin tarjeta de crédito para empezar · Videos en minutos
+                Versión de prueba · Aún no se cobra nada
               </p>
             </div>
 
@@ -95,7 +95,7 @@ export default function Home() {
                 <div className="phone-screen">
                   <video
                     className="phone-video hero-video"
-                    poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/spa_portrait.jpg"
+
                     autoPlay
                     muted
                     loop
@@ -133,12 +133,12 @@ export default function Home() {
           <div className="container quality-inner">
             <div className="quality-item">
               <strong>Personas virtuales</strong>
-              <span>Realistas, en español</span>
+              <span>En español</span>
             </div>
             <div className="quality-divider" aria-hidden="true"></div>
             <div className="quality-item">
               <strong>Voz y subtítulos</strong>
-              <span>Automáticos, en LATAM</span>
+              <span>En español para LATAM</span>
             </div>
             <div className="quality-divider" aria-hidden="true"></div>
             <div className="quality-item">
@@ -148,7 +148,7 @@ export default function Home() {
             <div className="quality-divider" aria-hidden="true"></div>
             <div className="quality-item">
               <strong>Sin grabarte</strong>
-              <span>Sin cámara, sin estudio</span>
+              <span>Sin cámara</span>
             </div>
           </div>
         </div>
@@ -160,13 +160,13 @@ export default function Home() {
           aria-labelledby="demos-heading"
         >
           <div className="container">
-            <p className="section-eyebrow">Ejemplos reales</p>
+            <p className="section-eyebrow">Ejemplos de muestra</p>
             <h2 id="demos-heading" className="section-heading">
               Mira lo que VozViva puede crear.
             </h2>
             <p className="section-sub">
-              Cada video fue generado a partir de una instrucción simple en
-              español. Sin actores, sin cámara, sin edición.
+              Ejemplos de muestra para mostrar el estilo. El texto de cada
+              ejemplo es una idea inventada, no un cliente real.
             </p>
 
             <div className="demos-grid">
@@ -177,7 +177,7 @@ export default function Home() {
                     <div className="demo-screen">
                       <video
                         className="demo-video"
-                        poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/spa_portrait.jpg"
+
                         muted
                         loop
                         playsInline
@@ -207,14 +207,6 @@ export default function Home() {
                     <span>Voz en español</span>
                     <span>Subtítulos</span>
                   </div>
-                  <a
-                    href="https://ai.invideo.io/ai-mcp-video?video=spa-wellness-promotion-with-discount-ynqlpo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="demo-watch-link"
-                  >
-                    ▶ Ver video demo
-                  </a>
                 </div>
               </div>
 
@@ -225,7 +217,7 @@ export default function Home() {
                     <div className="demo-screen">
                       <video
                         className="demo-video"
-                        poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/restaurant_portrait.jpg"
+
                         muted
                         loop
                         playsInline
@@ -255,14 +247,6 @@ export default function Home() {
                     <span>Voz en español</span>
                     <span>Subtítulos</span>
                   </div>
-                  <a
-                    href="https://ai.invideo.io/ai-mcp-video?video=restaurant-weekend-menu-announcement-kservq"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="demo-watch-link"
-                  >
-                    ▶ Ver video demo
-                  </a>
                 </div>
               </div>
 
@@ -273,7 +257,7 @@ export default function Home() {
                     <div className="demo-screen">
                       <video
                         className="demo-video"
-                        poster="https://nfhejlqgvghzafrnmpsl.supabase.co/storage/v1/object/public/vozviva-media/demos/realestate_portrait.jpg"
+
                         muted
                         loop
                         playsInline
@@ -303,14 +287,6 @@ export default function Home() {
                     <span>Voz en español</span>
                     <span>Subtítulos</span>
                   </div>
-                  <a
-                    href="https://ai.invideo.io/ai-mcp-video?video=real-estate-apartment-listing-in-mexico-city-tvveyc"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="demo-watch-link"
-                  >
-                    ▶ Ver video demo
-                  </a>
                 </div>
               </div>
             </div>
@@ -454,8 +430,8 @@ export default function Home() {
                   <div className="step-num">3</div>
                   <h3 className="step-title">Descarga y publica</h3>
                   <p className="step-desc">
-                    Tu video llega con subtítulos y formato 9:16. Listo para
-                    publicar en cualquier red.
+                    Pensado para formato vertical 9:16. Tú revisas el resultado
+                    antes de publicarlo.
                   </p>
                 </div>
               </div>
@@ -468,7 +444,7 @@ export default function Home() {
           <div className="container">
             <p className="section-eyebrow center">Para quién es</p>
             <h2 id="for-heading" className="section-heading center">
-              Hecho para negocios reales.
+              Pensado para negocios pequeños.
             </h2>
             <div className="for-grid">
               <div className="for-item">Spas y centros de bienestar</div>
@@ -494,94 +470,21 @@ export default function Home() {
           aria-labelledby="pricing-heading"
         >
           <div className="container">
-            <p className="section-eyebrow center">Planes</p>
+            <p className="section-eyebrow center">Precios</p>
             <h2 id="pricing-heading" className="section-heading center">
-              Elige tu plan.
+              Precios próximamente.
             </h2>
             <p className="pricing-disclaimer">
-              Precios en MXN. Los límites pueden ajustarse según el tipo de
-              producción.
+              VozViva es una versión de prueba. Todavía no hay planes ni cobros.
+              Si quieres probarlo cuando abra, escríbenos.
             </p>
-
-            <div className="pricing-grid">
-              <div className="plan-card">
-                <div className="plan-name">Arranque</div>
-                <div className="plan-price-row">
-                  <span className="plan-price">$899</span>
-                  <span className="plan-period">MXN / mes</span>
-                </div>
-                <p className="plan-desc">
-                  Para negocios que quieren probar videos y anuncios cortos.
-                </p>
-                <ul className="plan-list">
-                  <li>12 videos al mes</li>
-                  <li>3 personas virtuales</li>
-                  <li>Subtítulos automáticos</li>
-                  <li>TikTok, Reels y Shorts</li>
-                  <li>Guiones en español</li>
-                  <li>Soporte por correo</li>
-                </ul>
-                <a
-                  href="/dashboard/create"
-                  className="btn btn-outline plan-btn"
-                >
-                  Empezar con Arranque
-                </a>
-              </div>
-
-              <div className="plan-card plan-card--featured">
-                <div className="plan-badge">Más popular</div>
-                <div className="plan-name">Negocio</div>
-                <div className="plan-price-row">
-                  <span className="plan-price">$2,490</span>
-                  <span className="plan-period">MXN / mes</span>
-                </div>
-                <p className="plan-desc">
-                  Para equipos que publican cada semana y quieren probar
-                  ofertas.
-                </p>
-                <ul className="plan-list">
-                  <li>40 videos al mes</li>
-                  <li>8 personas virtuales</li>
-                  <li>Variantes de anuncio</li>
-                  <li>Subtítulos y cortes por red</li>
-                  <li>Calendario de contenido</li>
-                  <li>Soporte prioritario</li>
-                  <li>Recomendaciones de mejora</li>
-                </ul>
-                <a
-                  href="/dashboard/create"
-                  className="btn btn-primary plan-btn"
-                >
-                  Activar plan Negocio
-                </a>
-              </div>
-
-              <div className="plan-card">
-                <div className="plan-name">Agencia</div>
-                <div className="plan-price-row">
-                  <span className="plan-price">$5,900</span>
-                  <span className="plan-period">MXN / mes</span>
-                </div>
-                <p className="plan-desc">
-                  Para agencias y equipos que manejan varias marcas.
-                </p>
-                <ul className="plan-list">
-                  <li>120 videos al mes</li>
-                  <li>Múltiples marcas y clientes</li>
-                  <li>Bibliotecas de estilos</li>
-                  <li>Plantillas de campañas</li>
-                  <li>Exportación organizada</li>
-                  <li>Soporte prioritario</li>
-                  <li>Revisión mensual</li>
-                </ul>
-                <a
-                  href="/dashboard/create"
-                  className="btn btn-outline plan-btn"
-                >
-                  Hablar de Agencia
-                </a>
-              </div>
+            <div className="cta-actions">
+              <a
+                href="mailto:hello@kupurimedia.com?subject=Quiero%20probar%20VozViva"
+                className="btn btn-primary btn-lg"
+              >
+                Avísame cuando abra
+              </a>
             </div>
           </div>
         </section>
@@ -604,9 +507,7 @@ export default function Home() {
                   <span className="faq-icon" aria-hidden="true"></span>
                 </summary>
                 <p className="faq-a">
-                  No. VozViva reduce la parte técnica para que te concentres en
-                  tu mensaje, no en el software.
-                </p>
+                  No. La idea es que no tengas que editar video. Es una versión de prueba y puede fallar.</p>
               </details>
 
               <details className="faq-item">
@@ -615,9 +516,7 @@ export default function Home() {
                   <span className="faq-icon" aria-hidden="true"></span>
                 </summary>
                 <p className="faq-a">
-                  Sí. El guion, la voz y los subtítulos están en español para
-                  México y toda Latinoamérica, con tono natural.
-                </p>
+                  Está diseñado para español de México y Latinoamérica. La calidad de la voz y los subtítulos todavía se está probando.</p>
               </details>
 
               <details className="faq-item">
@@ -626,9 +525,7 @@ export default function Home() {
                   <span className="faq-icon" aria-hidden="true"></span>
                 </summary>
                 <p className="faq-a">
-                  Sí. Está pensado para negocios reales — restaurantes, spas,
-                  clínicas, hoteles, tiendas — no solo para grandes marcas.
-                </p>
+                  Está pensado para negocios pequeños como restaurantes, spas, clínicas, hoteles y tiendas. Aún no hay clientes de ejemplo.</p>
               </details>
 
               <details className="faq-item">
@@ -637,20 +534,16 @@ export default function Home() {
                   <span className="faq-icon" aria-hidden="true"></span>
                 </summary>
                 <p className="faq-a">
-                  Sí. Para eso está el plan Agencia: múltiples marcas,
-                  bibliotecas de estilos y revisión mensual incluida.
-                </p>
+                  Todavía no hay un plan para agencias. Escríbenos si te interesa y lo hablamos.</p>
               </details>
 
               <details className="faq-item">
                 <summary className="faq-q">
-                  <span>¿Los precios están en pesos mexicanos?</span>
+                  <span>¿Cuánto cuesta?</span>
                   <span className="faq-icon" aria-hidden="true"></span>
                 </summary>
                 <p className="faq-a">
-                  Sí. Todos los precios son en MXN. Los límites pueden
-                  ajustarse según el tipo de producción y herramientas externas.
-                </p>
+                  Todavía no hay precios ni cobros. Cuando existan, los publicaremos aquí.</p>
               </details>
 
               <details className="faq-item">
@@ -659,9 +552,7 @@ export default function Home() {
                   <span className="faq-icon" aria-hidden="true"></span>
                 </summary>
                 <p className="faq-a">
-                  La mayoría de los videos están listos en minutos. El tiempo
-                  exacto depende de la duración y el estilo elegido.
-                </p>
+                  Aún no medimos tiempos reales. Depende de la duración y el estilo elegido.</p>
               </details>
             </div>
           </div>
@@ -680,7 +571,7 @@ export default function Home() {
                 href="/dashboard/create"
                 className="btn btn-cta btn-xl"
               >
-                Crear mi primer video
+                Probar la versión de prueba
               </a>
               <a
                 href="mailto:hello@kupurimedia.com?subject=Hablemos%20de%20VozViva"
