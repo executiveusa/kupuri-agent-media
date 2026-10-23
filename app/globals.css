@@ -1819,3 +1819,23 @@ summary::-webkit-details-marker { display: none; }
    ============================================================ */
 .br-lg { display: none; }
 @media (min-width: 900px) { .br-lg { display: block; } }
+
+/* ============================================================
+   MOBILE POLISH (tap targets, legibility, video fit)
+   ============================================================ */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+video.has-src, .phone-video, .demo-video { object-fit: cover; background: #0d0d0d; }
+@media (max-width: 768px) {
+  .nav-toggle { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; margin-right: -8px; }
+  .logo { display: inline-flex; align-items: center; min-height: 44px; }
+  .plan-btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+  .footer-nav a, .footer-nav { line-height: 1; }
+  .footer-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; }
+  .footer-inner a[href*="kupuri"], .footer a[href*="kupuri"] { display: inline-block; padding: 12px 0; }
+  .demo-tag, .demo-tags span, .demo-outputs span, .hero-formats span { font-size: 0.75rem; }
+  .demo-card { padding-bottom: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  video { animation: none; }
+  * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
