@@ -64,7 +64,7 @@ export default function Home() {
           <div className="container hero-inner">
             <div className="hero-content">
               <h1 id="hero-heading" className="hero-headline">
-                La forma más fácil de crear videos
+                La forma más fácil de crear videos{' '}
                 <br className="br-lg" />
                 <em>para redes sociales en español.</em>
               </h1>
