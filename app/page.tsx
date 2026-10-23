@@ -14,10 +14,10 @@ export default function Home() {
             <a href="#preguntas">Preguntas</a>
           </nav>
           <a
-            href="/dashboard/create"
+            href="#registro"
             className="btn btn-primary btn-sm nav-cta"
           >
-            Empezar gratis
+            Probar la versión de prueba
           </a>
           <button
             className="nav-toggle"
@@ -50,10 +50,10 @@ export default function Home() {
             Preguntas
           </a>
           <a
-            href="/dashboard/create"
+            href="#registro"
             className="btn btn-primary mobile-cta"
           >
-            Empezar gratis
+            Probar la versión de prueba
           </a>
         </div>
       </header>
@@ -75,7 +75,7 @@ export default function Home() {
               </p>
               <div className="hero-actions">
                 <a
-                  href="/dashboard/create"
+                  href="#registro"
                   className="btn btn-primary btn-lg"
                 >
                   Probar la versión de prueba
@@ -290,10 +290,10 @@ export default function Home() {
 
             <div className="demos-cta">
               <a
-                href="/dashboard/create"
+                href="#registro"
                 className="btn btn-primary btn-lg"
               >
-                Crear mi video ahora
+                Probar la versión de prueba
               </a>
             </div>
           </div>
@@ -555,6 +555,36 @@ export default function Home() {
           </div>
         </section>
 
+        {/* REGISTRO */}
+        <section
+          id="registro"
+          className="registro-section"
+          aria-labelledby="registro-heading"
+        >
+          <div className="container registro-inner">
+            <h2 id="registro-heading" className="section-heading center">
+              El registro todavía no está abierto
+            </h2>
+            <p className="registro-copy">
+              VozViva es una versión de prueba privada: todavía no hay cuentas
+              ni cobros. Cuando el registro abra, podrás crear tu primer video
+              desde aquí. Mientras tanto, mira los ejemplos de muestra o
+              escríbenos.
+            </p>
+            <div className="registro-actions">
+              <a href="#demos" className="btn btn-primary btn-lg">
+                Ver ejemplos de muestra
+              </a>
+              <a
+                href="mailto:hello@kupurimedia.com?subject=Hablemos%20de%20VozViva"
+                className="btn btn-ghost btn-lg"
+              >
+                Hablar con el equipo
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* FINAL CTA */}
         <section className="cta-section" aria-labelledby="cta-heading">
           <div className="container">
@@ -565,7 +595,7 @@ export default function Home() {
             </h2>
             <div className="cta-actions">
               <a
-                href="/dashboard/create"
+                href="#registro"
                 className="btn btn-cta btn-xl"
               >
                 Probar la versión de prueba

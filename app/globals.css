@@ -1726,7 +1726,6 @@ summary::-webkit-details-marker { display: none; }
 
   .hero { padding: 56px 0 48px; }
   .hero-inner { grid-template-columns: 1fr; gap: 48px; }
-  .hero-phone { order: -1; }
   .phone-frame { width: 200px; }
 
   .demos-grid     { grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -1838,4 +1837,17 @@ video.has-src, .phone-video, .demo-video { object-fit: cover; background: #0d0d0
 @media (prefers-reduced-motion: reduce) {
   video { animation: none; }
   * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+/* ============================================================
+   REGISTRO (honest signup notice while in private preview)
+   ============================================================ */
+.registro-section { padding: 72px 0; }
+.registro-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.registro-copy { margin: 16px auto 28px; color: var(--muted, #5b5b5b); line-height: 1.65; }
+.registro-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+@media (max-width: 768px) {
+  .registro-section { padding: 56px 0; }
+  .registro-actions { flex-direction: column; }
+  .registro-actions .btn { width: 100%; justify-content: center; }
 }
