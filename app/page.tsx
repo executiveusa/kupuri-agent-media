@@ -203,9 +203,8 @@ export default function Home() {
                     de descuento&rdquo;
                   </div>
                   <div className="demo-outputs">
-                    <span>Persona virtual</span>
-                    <span>Voz en español</span>
-                    <span>Subtítulos</span>
+                    <span>Generado con IA</span>
+                    <span>Clip mudo de muestra</span>
                   </div>
                 </div>
               </div>
@@ -243,9 +242,8 @@ export default function Home() {
                     pozole&rdquo;
                   </div>
                   <div className="demo-outputs">
-                    <span>Persona virtual</span>
-                    <span>Voz en español</span>
-                    <span>Subtítulos</span>
+                    <span>Generado con IA</span>
+                    <span>Clip mudo de muestra</span>
                   </div>
                 </div>
               </div>
@@ -283,9 +281,8 @@ export default function Home() {
                     balcón en CDMX&rdquo;
                   </div>
                   <div className="demo-outputs">
-                    <span>Persona virtual</span>
-                    <span>Voz en español</span>
-                    <span>Subtítulos</span>
+                    <span>Generado con IA</span>
+                    <span>Clip mudo de muestra</span>
                   </div>
                 </div>
               </div>
